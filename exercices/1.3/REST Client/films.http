@@ -19,6 +19,6 @@ Content-Type: application/json
   "duration": 123,
   "budget": 201,
   "link":"www.moodle.vinci.be"
-},
+}
 
 

@@ -54,43 +54,30 @@ router.get('/', (req, res, next) => {
 
 // Create a film
 router.post('/', (req, res) => {
-  //Ici on introduit la nouvelle notation
+  const title = req?.body?.title?.length !== 0 ? req.body.title : undefined;
+  const duration = req?.body?.duration >= 0 ? req.body.duration : undefined;
+  const budget = req?.body?.budget >= 0 ? req.body.budget : undefined;
+  const link = req?.body?.link?.length !== 0 ? req.body.link : undefined;
 
-  const title = req?.body?.title?.trim()?.length !== 0 
-    ? req.body.title 
-    : undefined;
-  const link = req?.body?.content?.trim().length !== 0 
-    ? req.body.link 
-    : undefined;
+  console.log('POST /pizzas');
 
-  
-  const duration = typeof req?.body?.duration !== 'number' || req.body.duration < 0 
-      ? undefined 
-      : req.body.duration;
-  const budget = typeof req?.body?.budget !== 'number' || req.body.budget < 0
-      ? undefined
-      : req.body.budget;
+  if (!title || !duration || !budget || !link) return res.sendStatus(400); // error code '400 Bad request'
 
-  if (!title || !link || !duration || !budget) 
-    return res.json('Mauvaise requete'); 
-
-  //On recupere le dernier ID de la table 
-  const lastItemIndex = FILMS?.length !== 0 
-    ? FILMS.length - 1 
-    : undefined;
-  const lastId = lastItemIndex !== undefined 
-    ? FILMS[lastItemIndex]?.id 
-    : 0;
-
-  //On initialise le nouvel id
+  const lastItemIndex = FILMS?.length !== 0 ? FILMS.length - 1 : undefined;
+  const lastId = lastItemIndex !== undefined ? FILMS[lastItemIndex].id : 0;
   const nextId = lastId + 1;
 
-  //On cree le nouveau film
-  const newFilm = { id: nextId, title, duration, budget, link };
+  const newFilm = {
+    id: nextId,
+    title: title,
+    duration: duration,
+    budget: budget,
+    link: link
+  };
 
-  //On l'ajoute a FILMS
   FILMS.push(newFilm);
-  return res.json(newFilm);
+
+  res.json(newFilm);
 });
 
 router.post
