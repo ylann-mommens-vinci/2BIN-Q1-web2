@@ -1,0 +1,24 @@
+@baseUrl = http://localhost:3000
+
+### Read all films 
+GET {{baseUrl}}/films
+
+### Read all films with minimum-duration of 140min
+GET {{baseUrl}}/films/?minimum-duration=140
+
+### Try to read films with wrong minimum-duration
+GET {{baseUrl}}/films/?minimum-duration=0
+
+### Create a film
+POST {{baseUrl}}/films/
+Content-Type: application/json
+
+{
+  "id": 2,
+  "title": "GI-JOE 2: Le retour",
+  "duration": 123,
+  "budget": 201,
+  "link":"www.moodle.vinci.be"
+},
+
+
