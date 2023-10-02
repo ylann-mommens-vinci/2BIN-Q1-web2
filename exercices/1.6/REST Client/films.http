@@ -1,0 +1,34 @@
+@baseUrl = http://localhost:3000
+
+### Read all films 
+GET {{baseUrl}}/films
+
+### Read all films with minimum-duration of 140min
+GET {{baseUrl}}/films/?minimum-duration=140
+
+### Try to read films with wrong minimum-duration
+GET {{baseUrl}}/films/?minimum-duration=0
+
+### Create a film
+POST {{baseUrl}}/films/
+Content-Type: application/json
+
+{
+  "id": 2,
+  "title": "GI-JOE 2: Le retour",
+  "duration": 123,
+  "budget": 201,
+  "link":"www.moodle.vinci.be"
+}
+
+### Delete the film with ID == 2
+DELETE {{baseUrl}}/films/2
+
+### Patch the films with ID == 2
+PATCH {{baseUrl}}/films/2
+Content-Type: application/json
+
+{
+  "title":"Star Wars: Episode II – Attack of the Clones",
+  "budget": 1111
+}
