@@ -14,7 +14,7 @@ POST {{baseUrl}}/films/
 Content-Type: application/json
 
 {
-  "id": 2,
+
   "title": "GI-JOE 2: Le retour",
   "duration": 123,
   "budget": 201,
