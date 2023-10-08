@@ -1,0 +1,30 @@
+@baseUrl = http://localhost:3000
+
+### Read all films 
+GET {{baseUrl}}/films
+
+### Read film with ID == 1
+GET {{baseUrl}}/films/1
+
+### Create a film
+POST {{baseUrl}}/films/
+Content-Type: application/json
+
+{
+  "title": "GI-JOE 10: Le hebs",
+  "duration": 123,
+  "budget": 201,
+  "link":"www.moodle.vinci.be"
+}
+
+### Delete the film with ID == 2
+DELETE {{baseUrl}}/films/2
+
+### Patch the films with ID == 3
+PATCH {{baseUrl}}/films/3
+Content-Type: application/json
+
+{
+  "title":"Star Wars: Episode II – Attack of the Clones",
+  "budget": 1111
+}
