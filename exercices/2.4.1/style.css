@@ -1,0 +1,14 @@
+.center{
+    display: flex;
+    justify-content: center; /* Centrage horizontal */
+    align-items: center; /* Centrage vertical */
+    height: 100vh; /* Hauteur de l'écran */
+    background-color: grey;
+}
+  
+#myBtn1{
+    height: 10%;
+    width:  10%;
+    border-radius: 4px;
+    background-color: red;
+}
