@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  #image {
+    display: flex;
+    width: 50%; /* Largeur de 50% de la page */
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  #image img {
+    width: 80%; /* Les images prennent la pleine largeur du conteneur #image */
+    margin: 0 10px; /* Espacement horizontal entre les images */
+    max-width: 100%; /* Les images ne dépassent pas la largeur du conteneur */
+    height: auto; /* La hauteur s'ajuste automatiquement pour préserver les proportions */
+  
+}
+  
