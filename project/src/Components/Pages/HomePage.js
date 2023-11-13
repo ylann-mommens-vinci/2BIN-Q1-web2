@@ -1,4 +1,4 @@
-import illustrationImage from '../../img/cover.png';
+import illustrationImage from '../../img/cover2.jpg';
 
 import Navigate from '../Router/Navigate';
 

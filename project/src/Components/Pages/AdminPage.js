@@ -9,21 +9,21 @@ const formatFrenchDate = (dateString) => {
 };
 // const routineCounter = (userId) => {};
 
-
-
 const AdminPage = async () => {
-    const pb = new PocketBase('https://test-ylaann.pockethost.io');
-    const records = await pb.collection('utilisateurs').getFullList({
+    const url = 'https://ylann-mommens.pockethost.io/'
+    const imageUrl = `${url}api/files/utilisateurs`;
+
+    const pb = new PocketBase(url);
+
+    const userRecords = await pb.collection('utilisateurs').getFullList({
         sort: '-created',
     });
 
-    const rows = records.map(user => `
+    const rows = userRecords.map(user => `
         <tr>
+            <td> <input type="checkbox" class="table-row"></td>
             <td>
-                <input type="checkbox" class="table-row">
-                <img src=""></img>
-                ${user.photo_profil}
-            </td>
+                <img id="image" src="${imageUrl}/${user.id}/${user.photo_profil}" ></img>
             <td><a href="#">@${user.username}</a></td>
             <td>${user.nom}</td>
             <td>${user.prenom}</td>
@@ -33,12 +33,12 @@ const AdminPage = async () => {
             <td>${user.nombre_de_routine}</td>
         </tr>
     `);
-
     // Affichage de la page Admin
     const adminPage = `
         <table class="table">
             <thead>
                 <tr>
+                    <th></th>
                     <th></th>
                     <th>Username</th>
                     <th>Nom</th>

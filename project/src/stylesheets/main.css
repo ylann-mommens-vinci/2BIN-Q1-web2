@@ -9,8 +9,6 @@ body {
     
     width: 100%; 
     height: 100vh;
-
-    overflow: hidden;
 }
 
 
@@ -92,4 +90,17 @@ body {
 
 .quiz_responses .btn{
     margin: 10px;
+}
+
+/*------ADMIN PAGE SECTION------*/
+tbody #image{
+    width: 50px; 
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.table{
+    margin-left: 3rem;
+    margin-right: 2rem;
+    border-radius: 6px;
 }
